@@ -22,7 +22,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://YOUR-FRONTEND-NAME.onrender.com",
+        "https://reposhield.onrender.com",
     ],
     allow_credentials=False,
     allow_methods=["*"],
