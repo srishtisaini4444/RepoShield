@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from cvss import CVSS3, CVSS4
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.integrations.npm_client import (
     NpmPackageNotFound,
@@ -15,6 +16,17 @@ app = FastAPI(
     title="RepoShield API",
     description="Explainable npm package security risk assessment.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://YOUR-FRONTEND-NAME.onrender.com",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

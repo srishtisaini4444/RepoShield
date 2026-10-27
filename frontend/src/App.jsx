@@ -77,7 +77,7 @@ function App() {
       const payload = { package_name: cleanName }
       if (cleanVersion) payload.version = cleanVersion
 
-      const response = await fetch('/api/v1/scans', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || ""}/api/v1/scans`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
